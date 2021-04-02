@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% block references %}
+    {{block.super}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+{% endblock %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Search results for </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+        {% block body %}
+            <div class="results">
+                <h1>Search Results For: {{ searchvalue }}</h1>
+        </div>
+        <div>
+            {% for entry in search_results %}
+            <li><a href="{% url 'title' entry %}">{{ entry }}</a></li>
+            {% endfor %}
+        </div>
+        {% endblock %}
+        
+                

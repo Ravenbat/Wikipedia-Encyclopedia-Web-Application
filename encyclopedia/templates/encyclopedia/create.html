@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block title %}
+    Encyclopedia
+{% endblock %}
+{% block body %}
+    <h1>Create new Wiki entry</h1>
+    <div class="pagebody">
+    <form method = "POST" action="{% url 'save' %}">
+        <label for="PageName">Page Title:</label>
+        <input class="entryname" id=PageName type="text" name="PageName" placeholder="Page name"><br><br><br><br>
+        {% csrf_token %}
+        <label id="ContentLabel" for="content" style="display:block">Page Body:</label>
+        <textarea id="content" name="content" rows="4" cols="20" placeholder="Insert details here..."></textarea>
+        <button style="margin-left:0px; display:block">Publish</button>
+    </form>
+    </div>
+{% endblock %}

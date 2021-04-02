@@ -1,0 +1,11 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% load markdown_deux_tags %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="contain">
+    {{ blog_content|markdown }}
+    <a class="edit" href="{% url 'editEntry' entry_title %}">Edit this entry</a>
+</div>
+{% endblock %}

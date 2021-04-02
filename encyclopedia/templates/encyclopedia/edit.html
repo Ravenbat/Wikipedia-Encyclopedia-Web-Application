@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block title %}
+    Editing {{ EntryTitle }}
+{% endblock %}
+{% block body %}
+<form method = "POST" action="{% url 'updateEntry' EntryTitle %}">
+    <label for="edit_title">Edit Entry Title:</label>
+    <textarea id="editTitle" name="edit_title" rows="1" cols="20" placeholder="Insert details here...">{{ EntryTitle }}</textarea><br><br><br><br>
+    {% csrf_token %}
+    <label id="ContentLabel" for="edit_body" style="display:block">Edit Entry Body:</label>
+    <textarea id="content" name="edit_body" rows="4" cols="20" placeholder="Insert details here...">{{ EntryBody }}</textarea>
+    <button style="margin-left:0px; display:block">Save</button>
+</form>
+{% endblock %}
